@@ -1,0 +1,32 @@
+.box {
+  border: 10px solid #ec0606;
+  width: 100px;
+  height: 50px;
+}
+
+.word {
+  border: 10px solid #db1a1a;
+  width: 100px;
+  font-size: 250%;
+}
+
+.box2 {
+  border: 10px solid #d8ee17;
+  width: 200px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.box3 {
+  border: 1px solid #333333;
+  width: 200px;
+  height: 100px;
+  overflow: scroll;
+}
+
+.word1 {
+  border: 5px solid #333333;
+  width: 100px;
+  font-size: 250%;
+  overflow-x: scroll;
+}
