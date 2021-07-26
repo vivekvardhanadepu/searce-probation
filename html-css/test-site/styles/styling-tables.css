@@ -1,21 +1,31 @@
 html {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
 
 table {
   border-collapse: collapse;
-  border: 2px solid rgb(200,200,200);
+  border: 2px solid rgb(200, 200, 200);
   letter-spacing: 1px;
   font-size: 0.8rem;
 }
 
-td, th {
-  border: 1px solid rgb(190,190,190);
+tbody tr:nth-child(odd) {
+  background-color: #ff33cc;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e495e4;
+}
+
+td,
+th {
+  border: 1px solid rgb(190, 190, 190);
   padding: 10px 20px;
 }
 
 th {
-  background-color: rgb(235,235,235);
+  background-color: rgb(235, 235, 235);
 }
 
 td {
@@ -23,13 +33,65 @@ td {
 }
 
 tr:nth-child(even) td {
-  background-color: rgb(250,250,250);
+  background-color: rgb(250, 250, 250);
 }
 
 tr:nth-child(odd) td {
-  background-color: rgb(245,245,245);
+  background-color: rgb(245, 245, 245);
 }
 
 caption {
   padding: 10px;
+}
+
+.table1 {
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+
+.table1 td,
+th {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 10px 20px;
+}
+
+.table1 th {
+  background-color: rgb(235, 235, 235);
+}
+
+.table1 td {
+  text-align: center;
+}
+
+.table1 tr:nth-child(even) td {
+  background-color: rgb(250, 250, 250);
+}
+
+.table1 tr:nth-child(odd) td {
+  background-color: rgb(245, 245, 245);
+}
+
+.table1 caption {
+  /* padding: 10px; */
+  /* caption */
+  font-family: "Rock Salt", cursive;
+  padding: 20px;
+  font-style: italic;
+  caption-side: bottom;
+  color: #666;
+  text-align: right;
+  letter-spacing: 1px;
+}
+
+.table1 tbody {
+  font-size: 95%;
+  font-style: italic;
+}
+
+.table1 tfoot,
+thead {
+  font-weight: bold;
+  font-family: "Rock Salt", cursive;
 }
