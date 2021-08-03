@@ -1,2 +1,5 @@
-# resources
+# resources like books, articles, etc
 /resources
+
+# node modules
+node_modules
