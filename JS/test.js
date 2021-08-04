@@ -9,6 +9,8 @@
 4 < 3;
 
 true || false;
+2 | 3;
+
 typeof 3;
 typeof 3.0;
 typeof "hello";
@@ -72,13 +74,11 @@ console.log(v);
 typeof v;
 typeof undeclared;
 
-v = Symbol();
-typeof v;
-
 v = null;
 typeof v;
 
 v = function () {};
+var func_constructor = new Function("arg1", "arg2", "console.log ('Renu')");
 typeof v;
 
 var temp = "hello";
@@ -364,6 +364,23 @@ isnan = isNaN;
 
 NaN !== NaN;
 
+// ---------------- ES5 ----------
+var num = 0; // num is globally scoped
+for (var i = 0; i < 5; i++) {
+  num += i;
+}
+console.log(num); // 0 + 1 + 2 + 3 + 4 = 10
+console.log(i); // undefined
+
+// ---------- ES6 ----------
+var num = 0; // num is globally scoped
+for (let i = 0; i < 5; i++) {
+  // i is block scoped
+  num += i;
+}
+console.log(num); // 0 + 1 + 2 + 3 + 4 = 10
+console.log(i); // undefined
+
 // ES6
 function foo1(a = 2) {
   console.log(a);
@@ -378,6 +395,35 @@ function foo1() {
   var a = arguments[0] !== void 0 ? arguments[0] : 2;
   console.log(a);
 }
+
+var obj1 = { a: 1, b: 2 };
+// ---------- ES5 ----------
+var a = obj1.a;
+a;
+var b = obj1.b;
+b;
+// ---------- ES6 ----------
+// var {a, b} = obj1;
+
+var a = 1;
+var b = 2;
+// ---------- ES5 ----------
+var obj1 = { a: a, b: b };
+obj1;
+// ---------- ES6 ----------
+var obj1 = { a, b };
+obj1;
+
+/*var [a,b,c,d] = [0,1,2,3];
+a
+b*/
+
+var obj1 = { a: 1, b: 2 };
+var obj2 = { c: 3, d: 4 };
+// ---------- ES5 ----------
+var obj3 = Object.assign(obj1, obj2);
+// ---------- ES6 ----------
+var obj3 = { ...obj1, ...obj2 };
 
 //foo1(undefined)
 
@@ -425,48 +471,6 @@ const calcCircleAreaArrow = (radius) => {
 
 calcCircleAreaArrow(2);
 
-var obj1 = { a: 1, b: 2 };
-// ---------- ES5 ----------
-var a = obj1.a;
-a;
-var b = obj1.b;
-b;
-// ---------- ES6 ----------
-// var {a, b} = obj1;
-
-var a = 1;
-var b = 2;
-// ---------- ES5 ----------
-var obj1 = { a: a, b: b };
-obj1;
-// ---------- ES6 ----------
-var obj1 = { a, b };
-obj1;
-
-/*var [a,b,c,d] = [0,1,2,3];
-a
-b*/
-
-var obj1 = { a: 1, b: 2 };
-var obj2 = { c: 3, d: 4 };
-// ---------- ES5 ----------
-var obj3 = Object.assign(obj1, obj2);
-// ---------- ES6 ----------
-var obj3 = { ...obj1, ...obj2 };
-
-// ---------------- ES5 ----------
-var num = 0; // num is globally scoped
-for (var i = 0; i < 5; i++) {
-  num += i;
-}
-console.log(num); // 0 + 1 + 2 + 3 + 4 = 10
-console.log(i); // undefined
-
-// ---------- ES6 ----------
-var num = 0; // num is globally scoped
-for (let i = 0; i < 5; i++) {
-  // i is block scoped
-  num += i;
-}
-console.log(num); // 0 + 1 + 2 + 3 + 4 = 10
-console.log(i); // undefined
+v = Symbol();
+typeof v;
+console.log(v);

@@ -13,16 +13,6 @@ var obj1 = {
 var obj2 = {
   c: 3,
   d: 4
-};
+}; // ---------- ES6 ----------
 
-var obj3 = _objectSpread(_objectSpread({}, obj1), obj2);
-
-var a = obj1.a,
-    b = obj1.b;
-console.log(obj3);
-console.log(a);
-console.log(b);
-var c = 0,
-    d = 1;
-console.log(c);
-console.log(d);
+var obj4 = _objectSpread(_objectSpread({}, obj1), obj2);
