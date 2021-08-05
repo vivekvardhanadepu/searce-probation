@@ -505,3 +505,202 @@ try {
   console.log(bar); // ReferenceError!
   //let bar = 2;
 }
+
+a = 2;
+
+var a;
+
+console.log(a);
+
+cd = 23;
+
+console.log(cd);
+
+var cd;
+
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i);
+  }, i * 1000);
+}
+
+for (var i = 1; i <= 5; i++) {
+  (function () {
+    var j = i;
+    setTimeout(function timer() {
+      console.log(j);
+    }, j * 1000);
+  })();
+}
+
+for (var i = 1; i <= 5; i++) {
+  let j = i; // yay, block-scope for closure!
+  setTimeout(function timer() {
+    console.log(j);
+  }, j * 1000);
+}
+
+for (var i = 1; i <= 5; i++) {
+  var j = i; // yay, block-scope for closure!
+  setTimeout(function timer() {
+    console.log(j);
+  }, j * 1000);
+}
+
+for (let i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i);
+  }, i * 1000);
+}
+{
+  try {
+    throw undefined;
+  } catch (a) {
+    a = 31;
+    console.log(a);
+  }
+}
+
+/*console.log(a);
+let (a = 32) {
+	console.log( a ); // 2
+};
+
+console.log( a ); // ReferenceError*/
+
+var obj = {
+  count: 0,
+  cool: function coolFn() {
+    var self = this;
+
+    if (self.count < 1) {
+      setTimeout(function timer() {
+        self.count++;
+        console.log('awesome?');
+      }, 100);
+    }
+  },
+};
+
+obj.cool(); // awesome?
+
+function foo(num) {
+	console.log( "foo: " + num );
+
+	// keep track of how many times `foo` is called
+	foo.count++;
+}
+
+foo.count = 0;
+
+var i;
+
+for (i=0; i<10; i++) {
+	if (i > 5) {
+		foo( i );
+	}
+}
+// foo: 6
+// foo: 7
+// foo: 8
+// foo: 9
+
+// how many times was `foo` called?
+console.log( foo.count ); // 4
+
+/*function foo() {
+	var a = 2;
+	this.bar();
+}
+
+function bar() {
+	console.log( this.a );
+}
+
+foo(); //undefined*/
+
+function hello(){
+  console.log(this.hello_msg);
+}
+
+hello_msg = "hello this"
+
+hello()
+
+function foo() {
+	//"use strict";
+
+	console.log( this.a );
+}
+
+var a = 2;
+
+foo(); // TypeError: `this` is `undefined`
+
+function foo() {
+	console.log( this.a );
+}
+
+var a = 35;
+
+(function(){
+	"use strict";
+
+	foo(); // 2
+})();
+
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 25,
+	foo: foo
+};
+
+obj.foo(); // 2
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj2 = {
+	a: 42,
+	foo: foo
+};
+
+var obj1 = {
+	a: 2,
+	obj2: obj2
+};
+
+obj1.obj2.foo(); // 42
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2,
+	foo: foo
+};
+
+var bar = obj.foo; // function reference/alias!
+
+var a = "oops, global"; // `a` also property on global object
+
+bar(); // "oops, global"
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2,
+	foo: foo
+};
+
+var a = "oops, global"; // `a` also property on global object
+
+setTimeout( obj.foo, 100 ); // "oops, global"
