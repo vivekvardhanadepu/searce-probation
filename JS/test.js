@@ -13,7 +13,7 @@ true || false;
 
 typeof 3;
 typeof 3.0;
-typeof "hello";
+typeof 'hello';
 
 typeof undefined;
 
@@ -25,16 +25,16 @@ typeof { age: 39 };
 
 typeof true;
 
-typeof "hello";
+typeof 'hello';
 
-var h = "kyle";
+var h = 'kyle';
 
 console.log(h);
 
 var age;
 age = 3;
 
-var friends = ["buddu", "go", "all ways"];
+var friends = ['buddu', 'go', 'all ways'];
 
 console.log(friends.length);
 friends.length;
@@ -50,9 +50,9 @@ age += 2;
 age = age + age * 2;
 
 if (!age > 10) {
-  console.log("greater");
+  console.log('greater');
 } else {
-  console.log("lesser");
+  console.log('lesser');
 }
 
 for (let i = 0; i < friends.length; i++) {
@@ -78,15 +78,15 @@ v = null;
 typeof v;
 
 v = function () {};
-var func_constructor = new Function("arg1", "arg2", "console.log ('Renu')");
+var func_constructor = new Function('arg1', 'arg2', "console.log ('Renu')");
 typeof v;
 
-var temp = "hello";
+var temp = 'hello';
 var temp2 = temp / 2;
 temp2; // NaN signifies invalid arithmetic operation
 Number.isNaN(temp2);
 Number.isNaN(temp);
-var something = temp / "hello";
+var something = temp / 'hello';
 
 Number.isNaN(something);
 
@@ -103,16 +103,16 @@ String(3.2);
 
 var string_obj = new String();
 
-var yesterday = new Date("2021 July 30");
+var yesterday = new Date('2021 July 30');
 
 yesterday.toUTCString();
 
-console.log("hello " + String(16) + " world");
+console.log('hello ' + String(16) + ' world');
 
 /* in + operation, if one operand is a string, then every other operand is 
 converted to a string */
 
-console.log(`hello ${age + ""}`);
+console.log(`hello ${age + ''}`);
 
 function addAStudent(numStudents) {
   return numStudents + 1;
@@ -120,9 +120,9 @@ function addAStudent(numStudents) {
 
 addAStudent(Number(temp));
 
-addAStudent(Number("11"));
+addAStudent(Number('11'));
 
-Boolean("");
+Boolean('');
 
 Boolean(0);
 
@@ -160,17 +160,17 @@ if (
 
 if (und == null && undef == null) console.log(`hello`);
 
-var teacher = "kyle";
+var teacher = 'kyle';
 
 function otherClass() {
-  teacher = "suzy";
-  topic = "hell ya";
-  console.log("welcome");
+  teacher = 'suzy';
+  topic = 'hell ya';
+  console.log('welcome');
 }
 
 otherClass();
 
-var str = new Function("arg1", "arg2", "console.log ('Renu')");
+var str = new Function('arg1', 'arg2', "console.log ('Renu')");
 
 teacher;
 
@@ -186,16 +186,16 @@ var keyHandler = function keyHandler() {
 
 // IIFE: to temporarily declare the same variable respecting the global variable
 // Immediately invoked function expressions
-var teacher = "kyle";
+var teacher = 'kyle';
 (function anotherTeacher() {
-  var teacher = "suzy";
+  var teacher = 'suzy';
   console.log(teacher);
 })();
 teacher;
 
 // let - alternative to block scoping
 {
-  let teacher = "suzy";
+  let teacher = 'suzy';
   console.log(teacher);
 }
 teacher;
@@ -205,7 +205,7 @@ function ask1(question) {
     console.log(question);
   }, 1);
 }
-ask1("what are you?");
+ask1('what are you?');
 
 function ask(question) {
   return function waitASec() {
@@ -213,27 +213,27 @@ function ask(question) {
   };
 }
 
-var askFunc = ask("hellooooooo");
+var askFunc = ask('hellooooooo');
 
 askFunc();
 
 // this
 var workshop = {
-  teacher: "kyle:",
+  teacher: 'kyle:',
   ask(question) {
     console.log(this.teacher, question);
   },
 };
 
-workshop.ask("what is this keyword?");
+workshop.ask('what is this keyword?');
 
 function anotherAsk(question) {
   console.log(this.teache, question);
 }
 
 function otherFunc() {
-  var context = { teache: "kyle" };
-  anotherAsk.call(context, "Why?");
+  var context = { teache: 'kyle' };
+  anotherAsk.call(context, 'Why?');
 }
 
 anotherAsk();
@@ -247,11 +247,11 @@ thisFunc.prototype.ask = function (question) {
   console.log(this.t, question);
 };
 
-deep = new thisFunc("this is");
-react = new thisFunc("kells");
+deep = new thisFunc('this is');
+react = new thisFunc('kells');
 
-deep.ask("what?");
-react.ask("How?");
+deep.ask('what?');
+react.ask('How?');
 
 class Workshop {
   constructor(t) {
@@ -262,14 +262,14 @@ class Workshop {
   }
 }
 
-deep = new Workshop("this is");
-react = new Workshop("kells");
+deep = new Workshop('this is');
+react = new Workshop('kells');
 
-deep.ask("what?");
-react.ask("How?");
+deep.ask('what?');
+react.ask('How?');
 
 //age = prompt('what is your age?');
-var ab = "strig";
+var ab = 'strig';
 typeof ab;
 ab.toUpperCase();
 
@@ -277,20 +277,20 @@ var b = 3.1457;
 
 b.toFixed(2);
 
-3 == "3.0";
+3 == '3.0';
 
 a = [91, 2, 30];
 b = [91, 2, 30];
-c = "91,2,30";
+c = '91,2,30';
 
 a == b;
 a == c;
 b == c;
 
 var a = 41;
-var b = "42";
-var c = "43";
-var d = "foo";
+var b = '42';
+var c = '43';
+var d = 'foo';
 a < b;
 b < c;
 a < d;
@@ -300,28 +300,28 @@ a == d;
 switch (a) {
   case 2:
     // do something
-    console.log("hello2");
+    console.log('hello2');
     break;
   case 10:
     // do another thing
-    console.log("hello10");
+    console.log('hello10');
     break;
   case 42:
     // do yet another thing
-    console.log("hello42");
+    console.log('hello42');
     break;
   default:
     // fallback to here
-    console.log("default");
+    console.log('default');
 }
 
 var a = 42;
-var b = a > 41 ? "hello" : "world";
+var b = a > 41 ? 'hello' : 'world';
 
 b;
 
 function test_strict() {
-  "use strict";
+  'use strict';
   // alpha = 3;
 }
 
@@ -330,10 +330,10 @@ test_strict();
 function foo() {
   console.log(this.bar);
 }
-var bar = "global";
-var obj1 = { bar: "obj1", foo: foo };
-var obj2 = { bar: "obj2" };
-var obj3 = { bar: "obj3" };
+var bar = 'global';
+var obj1 = { bar: 'obj1', foo: foo };
+var obj2 = { bar: 'obj2' };
+var obj3 = { bar: 'obj3' };
 
 foo();
 
@@ -345,10 +345,10 @@ obj1.foo.call(obj2, obj3);
 
 obj1.foo.call(obj3, obj2);
 
-var foo = { a: 42 };
+//var foo = { a: 42 };
 // create `bar` and link it to `foo`
 var bar = Object.create(foo);
-bar.b = "hello world";
+bar.b = 'hello world';
 bar.b; // "hello world"
 bar.a; // 42 <-- delegated to `foo`
 
@@ -391,7 +391,7 @@ foo1(42); // 42
 // ES5
 /* caveat: you cannot pass undefined as value, which is pretty evident here, but not 
 in ES6*/
-function foo1() {
+function foo12() {
   var a = arguments[0] !== void 0 ? arguments[0] : 2;
   console.log(a);
 }
@@ -474,3 +474,34 @@ calcCircleAreaArrow(2);
 v = Symbol();
 typeof v;
 console.log(v);
+
+function foo5() {
+  function bar(a) {
+    j = 3; // changing the `i` in the enclosing scope's
+    // for-loop
+    console.log(a + j);
+  }
+  for (var i = 0; i < 10; i++) {
+    bar(i * 2); // oops, inifinite loop ahead!
+  }
+}
+foo5();
+var abc = 2;
+(function IIFE(global) {
+  var a = 3;
+  console.log(a); // 3
+  console.log(global.a); // 2
+})(window);
+console.log(abc);
+
+try {
+  undefined(); // illegal operation to force an exception!
+} catch (err) {
+  var abcd = 1;
+  console.log(err); // works!
+}
+//console.log(err);
+{
+  console.log(bar); // ReferenceError!
+  //let bar = 2;
+}
