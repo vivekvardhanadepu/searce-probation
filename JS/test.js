@@ -13,7 +13,7 @@ true || false;
 
 typeof 3;
 typeof 3.0;
-typeof 'hello';
+typeof "hello";
 
 typeof undefined;
 
@@ -25,16 +25,16 @@ typeof { age: 39 };
 
 typeof true;
 
-typeof 'hello';
+typeof "hello";
 
-var h = 'kyle';
+var h = "kyle";
 
 console.log(h);
 
 var age;
 age = 3;
 
-var friends = ['buddu', 'go', 'all ways'];
+var friends = ["buddu", "go", "all ways"];
 
 console.log(friends.length);
 friends.length;
@@ -50,9 +50,9 @@ age += 2;
 age = age + age * 2;
 
 if (!age > 10) {
-  console.log('greater');
+  console.log("greater");
 } else {
-  console.log('lesser');
+  console.log("lesser");
 }
 
 for (let i = 0; i < friends.length; i++) {
@@ -78,15 +78,15 @@ v = null;
 typeof v;
 
 v = function () {};
-var func_constructor = new Function('arg1', 'arg2', "console.log ('Renu')");
+var func_constructor = new Function("arg1", "arg2", "console.log ('Renu')");
 typeof v;
 
-var temp = 'hello';
+var temp = "hello";
 var temp2 = temp / 2;
 temp2; // NaN signifies invalid arithmetic operation
 Number.isNaN(temp2);
 Number.isNaN(temp);
-var something = temp / 'hello';
+var something = temp / "hello";
 
 Number.isNaN(something);
 
@@ -103,16 +103,16 @@ String(3.2);
 
 var string_obj = new String();
 
-var yesterday = new Date('2021 July 30');
+var yesterday = new Date("2021 July 30");
 
 yesterday.toUTCString();
 
-console.log('hello ' + String(16) + ' world');
+console.log("hello " + String(16) + " world");
 
 /* in + operation, if one operand is a string, then every other operand is 
 converted to a string */
 
-console.log(`hello ${age + ''}`);
+console.log(`hello ${age + ""}`);
 
 function addAStudent(numStudents) {
   return numStudents + 1;
@@ -120,9 +120,9 @@ function addAStudent(numStudents) {
 
 addAStudent(Number(temp));
 
-addAStudent(Number('11'));
+addAStudent(Number("11"));
 
-Boolean('');
+Boolean("");
 
 Boolean(0);
 
@@ -160,17 +160,17 @@ if (
 
 if (und == null && undef == null) console.log(`hello`);
 
-var teacher = 'kyle';
+var teacher = "kyle";
 
 function otherClass() {
-  teacher = 'suzy';
-  topic = 'hell ya';
-  console.log('welcome');
+  teacher = "suzy";
+  topic = "hell ya";
+  console.log("welcome");
 }
 
 otherClass();
 
-var str = new Function('arg1', 'arg2', "console.log ('Renu')");
+var str = new Function("arg1", "arg2", "console.log ('Renu')");
 
 teacher;
 
@@ -186,16 +186,16 @@ var keyHandler = function keyHandler() {
 
 // IIFE: to temporarily declare the same variable respecting the global variable
 // Immediately invoked function expressions
-var teacher = 'kyle';
+var teacher = "kyle";
 (function anotherTeacher() {
-  var teacher = 'suzy';
+  var teacher = "suzy";
   console.log(teacher);
 })();
 teacher;
 
 // let - alternative to block scoping
 {
-  let teacher = 'suzy';
+  let teacher = "suzy";
   console.log(teacher);
 }
 teacher;
@@ -205,7 +205,7 @@ function ask1(question) {
     console.log(question);
   }, 1);
 }
-ask1('what are you?');
+ask1("what are you?");
 
 function ask(question) {
   return function waitASec() {
@@ -213,27 +213,27 @@ function ask(question) {
   };
 }
 
-var askFunc = ask('hellooooooo');
+var askFunc = ask("hellooooooo");
 
 askFunc();
 
 // this
 var workshop = {
-  teacher: 'kyle:',
+  teacher: "kyle:",
   ask(question) {
     console.log(this.teacher, question);
   },
 };
 
-workshop.ask('what is this keyword?');
+workshop.ask("what is this keyword?");
 
 function anotherAsk(question) {
   console.log(this.teache, question);
 }
 
 function otherFunc() {
-  var context = { teache: 'kyle' };
-  anotherAsk.call(context, 'Why?');
+  var context = { teache: "kyle" };
+  anotherAsk.call(context, "Why?");
 }
 
 anotherAsk();
@@ -247,11 +247,11 @@ thisFunc.prototype.ask = function (question) {
   console.log(this.t, question);
 };
 
-deep = new thisFunc('this is');
-react = new thisFunc('kells');
+deep = new thisFunc("this is");
+react = new thisFunc("kells");
 
-deep.ask('what?');
-react.ask('How?');
+deep.ask("what?");
+react.ask("How?");
 
 class Workshop {
   constructor(t) {
@@ -262,14 +262,14 @@ class Workshop {
   }
 }
 
-deep = new Workshop('this is');
-react = new Workshop('kells');
+deep = new Workshop("this is");
+react = new Workshop("kells");
 
-deep.ask('what?');
-react.ask('How?');
+deep.ask("what?");
+react.ask("How?");
 
 //age = prompt('what is your age?');
-var ab = 'strig';
+var ab = "strig";
 typeof ab;
 ab.toUpperCase();
 
@@ -277,20 +277,20 @@ var b = 3.1457;
 
 b.toFixed(2);
 
-3 == '3.0';
+3 == "3.0";
 
 a = [91, 2, 30];
 b = [91, 2, 30];
-c = '91,2,30';
+c = "91,2,30";
 
 a == b;
 a == c;
 b == c;
 
 var a = 41;
-var b = '42';
-var c = '43';
-var d = 'foo';
+var b = "42";
+var c = "43";
+var d = "foo";
 a < b;
 b < c;
 a < d;
@@ -300,28 +300,28 @@ a == d;
 switch (a) {
   case 2:
     // do something
-    console.log('hello2');
+    console.log("hello2");
     break;
   case 10:
     // do another thing
-    console.log('hello10');
+    console.log("hello10");
     break;
   case 42:
     // do yet another thing
-    console.log('hello42');
+    console.log("hello42");
     break;
   default:
     // fallback to here
-    console.log('default');
+    console.log("default");
 }
 
 var a = 42;
-var b = a > 41 ? 'hello' : 'world';
+var b = a > 41 ? "hello" : "world";
 
 b;
 
 function test_strict() {
-  'use strict';
+  "use strict";
   // alpha = 3;
 }
 
@@ -330,10 +330,10 @@ test_strict();
 function foo() {
   console.log(this.bar);
 }
-var bar = 'global';
-var obj1 = { bar: 'obj1', foo: foo };
-var obj2 = { bar: 'obj2' };
-var obj3 = { bar: 'obj3' };
+var bar = "global";
+var obj1 = { bar: "obj1", foo: foo };
+var obj2 = { bar: "obj2" };
+var obj3 = { bar: "obj3" };
 
 foo();
 
@@ -348,7 +348,7 @@ obj1.foo.call(obj3, obj2);
 //var foo = { a: 42 };
 // create `bar` and link it to `foo`
 var bar = Object.create(foo);
-bar.b = 'hello world';
+bar.b = "hello world";
 bar.b; // "hello world"
 bar.a; // 42 <-- delegated to `foo`
 
@@ -576,7 +576,7 @@ var obj = {
     if (self.count < 1) {
       setTimeout(function timer() {
         self.count++;
-        console.log('awesome?');
+        console.log("awesome?");
       }, 100);
     }
   },
@@ -585,20 +585,20 @@ var obj = {
 obj.cool(); // awesome?
 
 function foo(num) {
-	console.log( "foo: " + num );
+  console.log("foo: " + num);
 
-	// keep track of how many times `foo` is called
-	foo.count++;
+  // keep track of how many times `foo` is called
+  foo.count++;
 }
 
 foo.count = 0;
 
 var i;
 
-for (i=0; i<10; i++) {
-	if (i > 5) {
-		foo( i );
-	}
+for (i = 0; i < 10; i++) {
+  if (i > 5) {
+    foo(i);
+  }
 }
 // foo: 6
 // foo: 7
@@ -606,7 +606,7 @@ for (i=0; i<10; i++) {
 // foo: 9
 
 // how many times was `foo` called?
-console.log( foo.count ); // 4
+console.log(foo.count); // 4
 
 /*function foo() {
 	var a = 2;
@@ -619,18 +619,18 @@ function bar() {
 
 foo(); //undefined*/
 
-function hello(){
+function hello() {
   console.log(this.hello_msg);
 }
 
-hello_msg = "hello this"
+hello_msg = "hello this";
 
-hello()
+hello();
 
 function foo() {
-	//"use strict";
+  //"use strict";
 
-	console.log( this.a );
+  console.log(this.a);
 }
 
 var a = 2;
@@ -638,52 +638,51 @@ var a = 2;
 foo(); // TypeError: `this` is `undefined`
 
 function foo() {
-	console.log( this.a );
+  console.log(this.a);
 }
 
 var a = 35;
 
-(function(){
-	"use strict";
+(function () {
+  "use strict";
 
-	foo(); // 2
+  foo(); // 2
 })();
 
-
 function foo() {
-	console.log( this.a );
+  console.log(this.a);
 }
 
 var obj = {
-	a: 25,
-	foo: foo
+  a: 25,
+  foo: foo,
 };
 
 obj.foo(); // 2
 
 function foo() {
-	console.log( this.a );
+  console.log(this.a);
 }
 
 var obj2 = {
-	a: 42,
-	foo: foo
+  a: 42,
+  foo: foo,
 };
 
 var obj1 = {
-	a: 2,
-	obj2: obj2
+  a: 2,
+  obj2: obj2,
 };
 
 obj1.obj2.foo(); // 42
 
 function foo() {
-	console.log( this.a );
+  console.log(this.a);
 }
 
 var obj = {
-	a: 2,
-	foo: foo
+  a: 2,
+  foo: foo,
 };
 
 var bar = obj.foo; // function reference/alias!
@@ -693,14 +692,287 @@ var a = "oops, global"; // `a` also property on global object
 bar(); // "oops, global"
 
 function foo() {
-	console.log( this.a );
+  console.log(this.a);
 }
 
 var obj = {
-	a: 2,
-	foo: foo
+  a: 2,
+  foo: foo,
 };
 
 var a = "oops, global"; // `a` also property on global object
 
-setTimeout( obj.foo, 100 ); // "oops, global"
+setTimeout(obj.foo, 100); // "oops, global"
+
+function foo() {
+  console.log(this.a);
+}
+
+var obj = {
+  a: 23,
+};
+
+foo.call(obj); // 2
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = function() {
+	foo.call( obj );
+};
+
+bar(); // 2
+setTimeout( bar, 100 ); // 2
+
+// `bar` hard binds `foo`'s `this` to `obj`
+// so that it cannot be overriden
+bar.call( window ); // 2
+
+
+function foo(something) {
+	console.log( this.a, something );
+	return this.a + something;
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = function() {
+	return foo.apply( obj, arguments );
+};
+
+var b = bar( 32 ); // 2 3
+console.log( b ); // 5
+
+function foo(something) {
+	console.log( this.a, something );
+	return this.a + something;
+}
+
+// simple `bind` helper
+function bind(fn, obj) {
+	return function() {
+		return fn.apply( obj, arguments );
+	};
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = bind( foo, obj );
+
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+
+
+function foo(something) {
+	console.log( this.a, something );
+	return this.a + something;
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = foo.bind( obj );
+
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+bar.name
+
+function foo(el) {
+	console.log( el, this.id );
+}
+
+var obj = {
+	id: "awesome"
+};
+
+// use `obj` as `this` for `foo(..)` calls
+[1, 2, 3].forEach( foo, obj ); // 1 awesome  2 awesome  3 awesome
+
+function foo(a) {
+	this.a = a;
+}
+
+var bar = new foo( 2 );
+console.log( bar.a ); // 2
+
+function foo(something) {
+	this.a = something;
+}
+
+var obj1 = {
+	foo: foo
+};
+
+var obj2 = {};
+
+obj1.foo( 2 );
+console.log( obj1.a ); // 2
+
+obj1.foo.call( obj2, 3 );
+console.log( obj2.a ); // 3
+
+var bar = new obj1.foo( 4 );
+console.log( obj1.a ); // 2
+console.log( bar.a ); // 4
+
+function foo() {
+	console.log( this.a );
+}
+
+var a = 2;
+
+foo.call( null ); // 2
+
+function foo(a,b) {
+	console.log( "a:" + a + ", b:" + b );
+}
+
+// spreading out array as parameters
+foo.apply( null, [2, 3] ); // a:2, b:3
+
+// currying with `bind(..)`
+var bar = foo.bind( null, 2 );
+bar( 3 ); // a:2, b:3
+
+function foo(a,b) {
+	console.log( "a:" + a + ", b:" + b );
+}
+
+// our DMZ empty object
+var ø = Object.create( null );
+
+// spreading out array as parameters
+foo.apply( ø, [2, 3] ); // a:2, b:3
+
+// currying with `bind(..)`
+var bar = foo.bind( ø, 2 );
+bar( 3 ); // a:2, b:3
+
+function foo() {
+	console.log( this.a );
+}
+
+var a = 2;
+var o = { a: 3, foo: foo };
+var p = { a: 4 };
+
+o.foo(); // 3
+(p.foo = o.foo)(); // 2
+
+if (!Function.prototype.softBind) {
+	Function.prototype.softBind = function(obj) {
+		var fn = this,
+			curried = [].slice.call( arguments, 1 ),
+			bound = function bound() {
+				return fn.apply(
+					(!this ||
+						(typeof window !== "undefined" &&
+							this === window) ||
+						(typeof global !== "undefined" &&
+							this === global)
+					) ? obj : this,
+					curried.concat.apply( curried, arguments )
+				);
+			};
+		bound.prototype = Object.create( fn.prototype );
+		return bound;
+	};
+}
+
+function foo() {
+   console.log("name: " + this.name);
+}
+
+var obj = { name: "obj" },
+    obj2 = { name: "obj2" },
+    obj3 = { name: "obj3" };
+
+var fooOBJ = foo.softBind( obj );
+
+fooOBJ(); // name: obj
+
+obj2.foo = foo.softBind(obj);
+obj2.foo(); // name: obj2   <---- look!!!
+
+fooOBJ.call( obj3 ); // name: obj3   <---- look!
+
+setTimeout( obj2.foo, 10 ); // name: obj   <---- falls back to soft-binding
+
+function foo() {
+	// return an arrow function
+	return (a) => {
+		// `this` here is lexically adopted from `foo()`
+		console.log( this.a );
+	};
+}
+
+var obj1 = {
+	a: 2
+};
+
+var obj2 = {
+	a: 3
+};
+
+var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2, not 3!
+
+var cde;
+cdc = cde+"undefine"
+cdc
+
+
+// Setup
+var recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Only change code below this line
+function updateRecords(records, id, prop, value) {
+  if(value){
+    if(prop==="tracks"){
+      if(records[id].hasOwnProperty("tracks")){
+        records[id].tracks.push(value);
+      }
+      else{
+        records[id].tracks = [value];
+      }
+    }
+    else{
+      records[id][prop] = value;
+    }
+  }
+  else{
+    delete recordCollection[id][prop];
+  }
+  return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');
+updateRecords(recordCollection, 2548, "artist", "")
