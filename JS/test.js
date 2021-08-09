@@ -350,7 +350,7 @@ obj1.foo.call(obj3, obj2);
 var bar = Object.create(foo);
 bar.b = "hello world";
 bar.b; // "hello world"
-bar.a; // 42 <-- delegated to `foo`
+bar.a; // 42 <-- delegated to `ifoo`
 
 if (!Number.isNaN) {
   Number.isNaN = function isNaN(x) {
@@ -584,20 +584,20 @@ var obj = {
 
 obj.cool(); // awesome?
 
-function foo(num) {
+function foo2(num) {
   console.log("foo: " + num);
 
   // keep track of how many times `foo` is called
-  foo.count++;
+  foo2.count++;
 }
 
-foo.count = 0;
+foo2.count = 0;
 
 var i;
 
 for (i = 0; i < 10; i++) {
   if (i > 5) {
-    foo(i);
+    foo2(i);
   }
 }
 // foo: 6
@@ -606,7 +606,7 @@ for (i = 0; i < 10; i++) {
 // foo: 9
 
 // how many times was `foo` called?
-console.log(foo.count); // 4
+console.log(foo2.count); // 4
 
 /*function foo() {
 	var a = 2;
@@ -627,7 +627,7 @@ hello_msg = "hello this";
 
 hello();
 
-function foo() {
+function foo3() {
   //"use strict";
 
   console.log(this.a);
@@ -635,9 +635,9 @@ function foo() {
 
 var a = 2;
 
-foo(); // TypeError: `this` is `undefined`
+foo3(); // TypeError: `this` is `undefined`
 
-function foo() {
+function foo4() {
   console.log(this.a);
 }
 
@@ -646,7 +646,7 @@ var a = 35;
 (function () {
   "use strict";
 
-  foo(); // 2
+  foo4(); // 2
 })();
 
 function foo() {
@@ -908,13 +908,13 @@ fooOBJ.call( obj3 ); // name: obj3   <---- look!
 
 setTimeout( obj2.foo, 10 ); // name: obj   <---- falls back to soft-binding
 
-function foo() {
+/*function foo() {
 	// return an arrow function
 	return (a) => {
 		// `this` here is lexically adopted from `foo()`
 		console.log( this.a );
 	};
-}
+}*/
 
 var obj1 = {
 	a: 2
@@ -924,7 +924,7 @@ var obj2 = {
 	a: 3
 };
 
-var bar = foo.call( obj1 );
+//var bar = foo.call( obj1 );
 bar.call( obj2 ); // 2, not 3!
 
 var cde;
@@ -975,4 +975,9 @@ function updateRecords(records, id, prop, value) {
 }
 
 updateRecords(recordCollection, 5439, 'artist', 'ABBA');
-updateRecords(recordCollection, 2548, "artist", "")
+updateRecords(recordCollection, 2548, "artist", "");
+
+/*let variable = "hello";
+let variable = "world"; // throws error */
+const [a1,b2,...arr3] = [1,2,3,4,5,6,7,8,9]
+arr3
