@@ -2,7 +2,9 @@
 // ---------- ES5 ----------
 // module.exports = testModule;
 // ---------- ES6 ----------
-export default testModule;
+export default function (x, y) {
+  return x + y;
+}
 // ---------- ES6 (child modules) ----------
-export const a = 1;
-export const b = 2;
+const a = 1;
+const b = 2;
