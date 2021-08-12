@@ -13,3 +13,4 @@ Contains practice tests and assigments in Web development
 
 - [HTML/CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)
 - [MDN web-dev tutorials repo](https://github.com/mdn/learning-area)
+- [cores-anywhere](https://github.com/Rob--W/cors-anywhere)

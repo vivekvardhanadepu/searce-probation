@@ -1,5 +1,7 @@
 const clientId = "c06f5cb0ec9e4b8f891135ba43f98854";
 const redirectUrl = "http://localhost:3000";
+// const redirectUrl = "http://537ddfadb5ad.ngrok.io";
+const baseUrl = "https://still-earth-40342.herokuapp.com/";
 let accessToken;
 
 const Spotify = {
@@ -15,6 +17,7 @@ const Spotify = {
       const expiresIn = Number(expiresInMatch[1]);
       window.setTimeout(() => (accessToken = ""), expiresIn * 1000);
       window.history.pushState("Access Token", null, "/");
+      console.log("Spotify:21 reaching here?");
       return accessToken;
     } else {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUrl}`;
@@ -24,12 +27,17 @@ const Spotify = {
 
   search(term) {
     const accessToken = Spotify.getAccessToken();
-    return fetch(`https://api.spotify.com/v1/search?type=track&g=${term}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
+    return fetch(
+      `${baseUrl}/https://api.spotify.com/v1/search?type=track&q=${term}`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    )
       .then((response) => {
+        console.log(`Spotify:39`);
+        console.log(response.json());
         return response.json();
       })
       .then((jsonResponse) => {
@@ -45,6 +53,7 @@ const Spotify = {
         }));
       });
   },
+
   savePlaylist(name, trackUris) {
     if (!name || !trackUris.length) {
       return;

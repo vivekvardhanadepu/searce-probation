@@ -5,7 +5,7 @@ import Tracklist from "../Tracklist/Tracklist";
 class SearchResults extends Component {
   render() {
     return (
-      <div classname="SearchResults">
+      <div className="SearchResults">
         <h2>Results</h2>
         <Tracklist tracks={this.props.SearchResults} onAdd={this.props.onAdd} />
       </div>

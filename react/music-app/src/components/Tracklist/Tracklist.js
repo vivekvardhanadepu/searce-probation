@@ -5,7 +5,7 @@ import Track from "../Track/Track";
 class Tracklist extends Component {
   render() {
     let tracks;
-    if (this.props.tracks)
+    if (this.props.tracks) {
       tracks = this.props.tracks.map((track) => {
         return (
           <Track
@@ -17,6 +17,8 @@ class Tracklist extends Component {
           />
         );
       });
+      console.log(`Tracklist:20 ${tracks}`);
+    }
     return <div className="Tracklist">{tracks}</div>;
   }
 }

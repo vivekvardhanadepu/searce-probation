@@ -16,14 +16,14 @@ class Playlist extends Component {
 
   render() {
     return (
-      <div classname="Playlist">
+      <div className="Playlist">
         <input onChange={this.handleNameChange} defaultValue="New Playlist" />
         <Tracklist
           tracks={this.props.playlistTracks}
           isRemoval={true}
           onRemove={this.props.onRemove}
         />
-        <button classname="Playlist-save" onClick={this.props.onSave}>
+        <button className="Playlist-save" onClick={this.props.onSave}>
           Save to Spotify
         </button>
       </div>
