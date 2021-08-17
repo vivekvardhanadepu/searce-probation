@@ -6,3 +6,6 @@ node_modules
 
 # cors-anywhere repo
 cors-anywhere
+
+# keys
+*key*.json
