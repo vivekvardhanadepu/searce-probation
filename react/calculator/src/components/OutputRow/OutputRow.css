@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "digital-7", arial;
+  src: url("https://allfont.net/allfont.css?fonts=digital-7");
+}
+.screen {
+  background-color: rgb(171, 219, 231);
+  justify-content: left;
+  color: black;
+  font-size: medium;
+  width: 50%;
+  height: 30%;
+  cursor: default;
+  padding: 10px;
+  padding-left: 40%;
+  margin: auto;
+  margin-bottom: 10px;
+}
