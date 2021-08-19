@@ -8,6 +8,9 @@ Contains practice tests and assigments in Web development
 - Javascript tutorials
   - [freeCodeCamp](https://www.freecodecamp.org/fcc13f1362b-b701-43c3-9838-4139276bba1d)
   - [practice](JS)
+- Package manager and managing dependencies
+  - [freeCodeCamp](https://www.freecodecamp.org/fcc13f1362b-b701-43c3-9838-4139276bba1d)
+  - [repo](https://boilerplate-npm-1.vivekvicky1.repl.co)
 
 ## Resources
 
