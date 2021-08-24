@@ -11,6 +11,7 @@ Contains practice tests and assigments in Web development
 - Package manager and managing dependencies
   - [freeCodeCamp](https://www.freecodecamp.org/fcc13f1362b-b701-43c3-9838-4139276bba1d)
   - [repo](https://boilerplate-npm-1.vivekvicky1.repl.co)
+- [Appointment booking bot](https://bot.dialogflow.com/b6a794c6-4720-483a-90e7-4a4da8b60ef3)
 
 ## Resources
 
@@ -22,3 +23,4 @@ Contains practice tests and assigments in Web development
 - [webpack-demo-app](https://github.com/Colt/webpack-demo-app)
 - [react-bootstrap](https://react-bootstrap.github.io/)
 - [unsplash images](https://source.unsplash.com/)
+- [dialogflow](https://www.youtube.com/playlist?list=PLIivdWyY5sqK5SM34zbkitWLOV-b3V40B)
