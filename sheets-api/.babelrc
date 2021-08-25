@@ -1,0 +1,3 @@
+{
+  "presets": ["/opt/homebrew/lib/node_modules/@babel/preset-env"]
+}

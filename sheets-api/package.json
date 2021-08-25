@@ -4,11 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "babel": "./node_modules/.bin/babel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.15.0",
+    "coffee-script": "^1.12.7",
+    "gapi": "^0.0.3",
+    "google-charts": "^2.0.0",
     "googleapis": "^84.0.0"
   }
 }

@@ -12,6 +12,7 @@ client.authorize((err, tokens) => {
   }
 
   console.log("connected!");
+  // console.log(tokens.access_token);
   gsrun(client);
 });
 
@@ -23,14 +24,14 @@ async function gsrun(cl) {
   };
   let data = await gsapi.spreadsheets.values.get(opt);
   let dataArray = data.data.values;
-  console.log(data.data.values);
+  // console.log(data.data.values);
   dataArray = dataArray.map((r) => {
     while (r.length < 2) {
       r.push("");
     }
     return r;
   });
-  console.log("after:", dataArray);
+  // console.log("after:", dataArray);
   // let newData = dataArray.map((row) => {
   //   row.push(row[0] + "-" + row[1]);
   //   return row;
