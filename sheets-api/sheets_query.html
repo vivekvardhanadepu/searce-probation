@@ -62,23 +62,41 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
+    <script src="https://apis.google.com/js/auth.js"></script>
     <script type="text/javascript">
       google.load("visualization", "1", { packages: ["corechart"] });
     </script>
     <!-- <script src="./require.js"></script> -->
     <!-- <script type="module" src="test.js"></script> -->
-    <script
+    <!-- <script
       type="text/javascript"
       src="https://apis.google.com/js/api.js"
-    ></script>
+    ></script> -->
     <script type="text/javascript">
-      function drawDynamicSelect() {
-        const client = new gapi.auth2.JWT(
-          keys.client_email,
-          null,
-          keys.private_key,
-          ["https://www.googleapis.com/auth/spreadsheets"]
+      function handleQueryResponse(response) {
+        console.log(response);
+        var data = response.getDataTable();
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById("columnchart")
         );
+        chart.draw(data, null);
+      }
+      function drawDynamicSelect() {
+        var client_email =
+          "service123@sublime-lens-323208.iam.gserviceaccount.com";
+        var scopes = "https://www.googleapis.com/auth/spreadsheets";
+        private_key =
+          "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDIoTzafBLsYt1u\nvvXaqqZMOC8uz6PSSZckZWmYHxZHLSa7e+A4V7qB2xPeq572Nt/QQQP+/gOlDPN8\n3hall8YRljfKjg8wWMme2h7c0xGkoiUw2D9zquqjxGzwVnlaQDxRBF8rXRProUWc\nEgGZiHtiEvfe6xWlUfKrVYQiV8OgNHBXNz4QqdjYzZjT1llcB/dzd66eYbtTQs4O\noRmfdw98nZ4kcbIE7WkF7AgzVhStl0oCjGiHYIl0KEXjvpr+lduO6DiJU4oi+yQ2\nqdDmneH3hWxMY1Zu8CgcrkYAvBVaIhOETKC0PmG/RwO4ZEta+hwyEwf+b46MmLQW\ng7RYccavAgMBAAECggEABEvwCbw9i1VQbwoUVkCidy5HHGcNjMt7nxySn0LoCwQC\nDGLKMvoBIE4zRG6GTq4WFOLCWGj/yjNRixVC3cUVraeGIkPPRaMjOmwSCLL8UE7a\n6lkX7ZBwI6DCc0fmHjMpXRbQI9LGbtR/Nr9E14BtJycaqrf2ZRoaqAcIE4Z4KgG7\nDMSf2pHyE1kABYgeucdqQFDvOj6XJvSbgZuih61r/jylX6vVSxd+9vdGmbfimyns\n866lJMOxCXgxBZfgNUJbfrPssiZ8vscPIsdC6Z87YKGRvJqEIoCiltAn0xggY5v9\nFiWCIowHEkRGnKm/ge8DkxiHhNPMiFbVZeViTjhgiQKBgQD3RpFNEjwbkAnG4Zkh\nUxzEkiqpCLVSn+AYfgWKPiADo5/ulhvkt5nKSWpuiDb1XWCiNMKqKTlNKCyigsU8\nMs0eEDRB0An4qv32TH3wVQS0+ODY/PULCp0vxh6HnLV5wqkGe7BF6NrZMA1DV8S1\nhxs2MHDJ6h+2jogikzsXH3cvjQKBgQDPtVuXgwd4e4FkOE1FQ+ckDT+v1zYidQR5\ny0pWAKt2LTzRq4ljMxd/Y//Lv+/7B+sjKSnwX5I2clD5dF3cRPXEHR1fbjeFnLHV\nOjgphop1BPkcA5gglpzjXCCqcKDOB4X+RDW/ddiXfHp0IVY86jn3G6Zxyqb47wqQ\nwtyIvUByKwKBgQC39qsg8KEBTH7JlIstLL0pTSkpyo3Do6e/8PnEKIX+zxusD8c+\nuI1U3putEe/5SXgcFS6CE9tKmMnkOW/tYkoRxLJsCA9zDhuUwsGrLEUtMj9tj3vq\ntAHPShDqiV7F8Fl5tkmlKSCwFjy3zjNNbe+DuDQhM+pWEeIb/vcmM8Wi/QKBgHXC\neJ855m5kd0N+uDBhAxbpfAYRmduHRHZYz1hbINrrYuPswQPA372V0FyQAVrtbl6M\n4/4n8Rl1Tntfgidz4XLCnviP4GKcKCafz1+bq7wUibdcQk+XlHNCtDJtkH2+vjUe\nLurRwW6BYFue2unGUf7Lal5xaqEPxYm1MJtF0NfpAoGAOik3VT/KzYhW/rTnLMcC\nuWPs0V8l3ngdQdyK39UU86FKirNe3k1fQHoA1xRTxY5v7+aEADMYMrZHujMYsgbi\nJ5qNwQH20jFmue7zBzxUCcEtmwq6a00vs7ErYYzjfIHBnJeKcXCXMRZOb3gHvE8P\nHayu2vI7tcBpt75uztROPt0=\n-----END PRIVATE KEY-----\n";
+        // gapi.auth.authorize(
+        //   { client_id: client_email, scope: scopes },
+        //   (response) => {
+        //     console.log(response);
+        //   }
+        // );
+        gapi.auth.JWT(client_email, null, private_key, [
+          "https://www.googleapis.com/auth/spreadsheets",
+        ]);
+        client.authorize();
         var spreadsheetId = "1lOSs2v92YJ6VVsAsK1MwhHRHOsBOtO8C2RoKS5Zi0xY";
         var tqUrl =
           "https://docs.google.com/spreadsheets/d/" +
@@ -86,7 +104,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
           "/gviz/tq?gid=0";
         var query = new google.visualization.Query(tqUrl);
         query.setQuery("SELECT B, Count(C) GROUP BY B ");
-        query.send(handleSelectResponse, { auth: client });
+        // query.send(handleQueryResponse, { auth: gapi.auth });
       }
     </script>
   </head>
@@ -94,7 +112,7 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
     style="font-family: Arial; border: 0 none"
     onload="drawDynamicSelect();"
   >
-    <p>
+    <!-- <p>
       Data for this page is extracted from this
       <a href="https://spreadsheets.google.com/ccc?key=tQW2XyL0iNBeq8m6zrFuMRw"
         >Google Spreadsheet</a
@@ -103,19 +121,19 @@ Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
         href="https://spreadsheets.google.com/viewform?hl=en_GB&amp;formkey=dFFXMlh5TDBpTkJlcThtNnpyRnVNUnc6MQ#gid=0"
         >this form</a
       >.
-    </p>
+    </p> -->
     <form action="" name="myform">
       <select name="ansSet" onChange="drawVisualization(this.value)">
         <option value="">-Select Answer Set-</option>
       </select>
     </form>
     <div id="visualization" style="height: 400px; width: 600px"></div>
-    <footer>
+    <!-- <footer>
       Created by <a href="http://twitter.com/mhawksey">mhawksey</a> |
       <a
         href="http://www.rsc-ne-scotland.org.uk/mashe/2010/12/gevs-google-visualization/"
         >Related blog post</a
       >
-    </footer>
+    </footer> -->
   </body>
 </html>

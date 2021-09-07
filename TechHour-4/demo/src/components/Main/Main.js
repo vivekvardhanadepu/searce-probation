@@ -15,8 +15,8 @@ class Main extends Component {
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/slideshow" component={Slideshow} />
-          <Redirect to="/home" />
         </Switch>
+        <Redirect to="/home" />
         <Footer></Footer>
       </div>
     );
