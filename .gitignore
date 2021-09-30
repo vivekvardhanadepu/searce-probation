@@ -1,5 +1,7 @@
 # resources like books, articles, etc
 /resources
+/GCP/downloads
+/GCP/*.pdf
 
 # node modules
 node_modules
