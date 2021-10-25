@@ -3,7 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import DrawerNavigator from './DrawerNavigator';
 import AuthNavigator from './AuthNavigator';
-import {GlobalContext} from './src/context/Provider';
+import {GlobalContext} from '../context/Provider';
 
 export default function () {
   const {
