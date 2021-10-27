@@ -9,7 +9,7 @@ import {LOGIN} from '../../constants/routeNames';
 
 import styles from './styles';
 
-const RegisterComponent = () => {
+const RegisterComponent = ({form, errors, onChange, onSubmit}) => {
   const [value, onChangeText] = useState('');
   const {navigate} = useNavigation();
 
@@ -25,36 +25,48 @@ const RegisterComponent = () => {
         <View style={[styles.form]}>
           <Input
             label="Username"
-            placeholer="Enter username"
-            onChangeText={onChangeText}
-            value={value}
+            placeholder="Enter username"
+            onChangeText={value => {
+              onChange({name: 'userName', value});
+            }}
+            error={errors.userName}
           />
           <Input
             label="Firstname"
-            placeholer="Enter Firstname"
-            // onChangeText={onChangeText}
-            // value={value}
+            placeholder="Enter Firstname"
+            onChangeText={value => {
+              onChange({name: 'firstName', value});
+            }}
+            error={errors.firstName}
           />
           <Input
             label="Lastname"
-            placeholer="Enter Lastname"
-            // onChangeText={onChangeText}
-            // value={value}
+            placeholder="Enter Lastname"
+            onChangeText={value => {
+              onChange({name: 'lastName', value});
+            }}
+            error={errors.lastName}
           />
           <Input
             label="Email"
-            placeholer="Enter email"
-            // onChangeText={onChangeText}
-            // value={value}
+            placeholder="Enter Email"
+            onChangeText={value => {
+              onChange({name: 'email', value});
+            }}
+            error={errors.email}
           />
           <Input
             label="Password"
-            placeholer="Enter password"
+            placeholder="Enter Password"
             icon={<Text>Show</Text>}
             secureTextEntry={true}
             iconPosition="right"
+            // onChangeText={value => {
+            //   onChange({name: 'password', value});
+            // }}
+            error={errors.password}
           />
-          <CustomButton primary title="Submit" />
+          <CustomButton onPress={onSubmit} primary title="Submit" />
           <View style={[styles.createSection]}>
             <Text style={[styles.infoText]}>Already have an account?</Text>
             <TouchableOpacity
