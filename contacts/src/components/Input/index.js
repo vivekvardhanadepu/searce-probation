@@ -13,6 +13,7 @@ const Input = ({
   onChangeText,
   label,
   error,
+  ...props
 }) => {
   const [focused, setFocus] = useState(false);
 
@@ -51,6 +52,7 @@ const Input = ({
           onBlur={() => {
             setFocus(false);
           }}
+          {...props}
         />
       </View>
       {error && <Text style={styles.error}>{error}</Text>}
