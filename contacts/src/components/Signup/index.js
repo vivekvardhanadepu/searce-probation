@@ -61,9 +61,9 @@ const RegisterComponent = ({form, errors, onChange, onSubmit}) => {
             icon={<Text>Show</Text>}
             secureTextEntry={true}
             iconPosition="right"
-            // onChangeText={value => {
-            //   onChange({name: 'password', value});
-            // }}
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
             error={errors.password}
           />
           <CustomButton onPress={onSubmit} primary title="Submit" />

@@ -8,6 +8,25 @@ const Signup = () => {
 
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
+    if (value) {
+      if (name === 'password') {
+        if (value.length < 6) {
+          setErrors({
+            ...errors,
+            password: 'Password must be at least 6 characters',
+          });
+        } else {
+          setErrors({...errors, password: ''});
+        }
+      } else {
+        setErrors(prevErrors => ({...prevErrors, [name]: null}));
+      }
+    } else {
+      setErrors(prevErrors => ({
+        ...prevErrors,
+        [name]: 'This field is required',
+      }));
+    }
   };
 
   const onSubmit = () => {
