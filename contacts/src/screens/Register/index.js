@@ -1,11 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import RegisterComponent from '../../components/Signup';
+import axiosInstance from '../../helpers/axiosInspector';
 
 const Signup = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    axiosInstance.get('/contacts').catch(err => {
+      console.log('response err:', err.response);
+    });
+  }, []);
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
     if (value) {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -6,14 +6,11 @@ import Container from '../common/Container/index';
 import Input from '../Input/index';
 import CustomButton from '../CustomButton/index';
 import {LOGIN} from '../../constants/routeNames';
-import envs from '../../config/envs';
 
 import styles from './styles';
 
 const RegisterComponent = ({form, errors, onChange, onSubmit}) => {
-  const [value, onChangeText] = useState('');
   const {navigate} = useNavigation();
-  const {BACKEND_URL} = env;
 
   return (
     <Container>
