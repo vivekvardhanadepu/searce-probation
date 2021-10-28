@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android --port 9988",
     "ios": "react-native run-ios --port 9988",
-    "start": "react-native start --port 9988",
+    "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
     "pod": "npx pod-install ios"

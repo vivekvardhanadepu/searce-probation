@@ -1,17 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useState, useCallback, useEffect} from 'react';
+import {useNavigation, useFocusEffect} from '@react-navigation/native';
 
 import RegisterComponent from '../../components/Signup';
-import axiosInstance from '../../helpers/axiosInspector';
+import {LOGIN} from '../../constants/routeNames';
+import register, {clearAuthState} from '../../context/actions/register';
+import {GlobalContext} from '../../context/Provider';
 
 const Signup = () => {
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
+  const {navigate} = useNavigation();
+  const {
+    authDispatch,
+    authState: {error, loading, data},
+  } = useContext(GlobalContext);
 
   useEffect(() => {
-    axiosInstance.get('/contacts').catch(err => {
-      console.log('response err:', err.response);
-    });
-  }, []);
+    if (data) {
+      navigate(LOGIN);
+    }
+  }, [data]);
+
+  useFocusEffect(
+    useCallback(() => {
+      if (data) {
+        return () => clearAuthState()(authDispatch);
+      }
+    }, [data]),
+  );
+
   const onChange = ({name, value}) => {
     setForm({...form, [name]: value});
     if (value) {
@@ -22,7 +39,7 @@ const Signup = () => {
             password: 'Password must be at least 6 characters',
           });
         } else {
-          setErrors({...errors, password: ''});
+          setErrors({...errors, password: null});
         }
       } else {
         setErrors(prevErrors => ({...prevErrors, [name]: null}));
@@ -70,13 +87,23 @@ const Signup = () => {
         password: 'Please enter a password',
       }));
     }
+
+    if (
+      Object.values(form).length === 5 &&
+      Object.values(form).every(item => item.trim().length > 0) &&
+      Object.values(errors).every(item => !item)
+    ) {
+      register(form)(authDispatch);
+    }
   };
   return (
     <RegisterComponent
       form={form}
       errors={errors}
       onChange={onChange}
-      onSubmit={onSubmit}></RegisterComponent>
+      onSubmit={onSubmit}
+      error={error}
+      loading={loading}></RegisterComponent>
   );
 };
 
