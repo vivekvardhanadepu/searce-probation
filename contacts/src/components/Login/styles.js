@@ -27,7 +27,7 @@ export default StyleSheet.create({
   createSection: {
     flexDirection: 'row',
   },
-  infotext: {
+  infoText: {
     fontSize: 17,
   },
   linkBtn: {

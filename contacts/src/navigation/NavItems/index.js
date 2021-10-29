@@ -1,13 +1,38 @@
 import React from 'react';
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Alert,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import Container from '../../components/common/Container';
+import logout from '../../context/actions/logout';
 import {SETTINGS} from '../../constants/routeNames';
 
 import styles from './styles';
 
-export default NavItems = ({navigation}) => {
-  const {navigate} = navigation;
+export default NavItems = ({navigation, authDispatch}) => {
+  const {navigate, toggleDrawer} = navigation;
+
+  const handleLogout = () => {
+    toggleDrawer();
+    Alert.alert('Logout', 'Are you sure you want to logout?', [
+      {
+        text: 'Cancel',
+        onPress: () => {},
+      },
+      {
+        text: 'Ok',
+        onPress: () => {
+          logout()(authDispatch);
+        },
+      },
+    ]);
+  };
+
   const items = [
     {
       icon: <Text>T</Text>,
@@ -20,7 +45,7 @@ export default NavItems = ({navigation}) => {
       icon: <Text>L</Text>,
       name: 'Logout',
       onPress: () => {
-        // navigate(SETTINGS);
+        handleLogout();
       },
     },
   ];

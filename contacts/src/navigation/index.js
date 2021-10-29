@@ -8,11 +8,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ActivityIndicator} from 'react-native';
 
 export default () => {
-  const [authed, setAuthed] = useState(false);
-  const [authLoaded, setAuthLoaded] = useState(false);
   const {
     authState: {isLoggedIn},
   } = useContext(GlobalContext);
+  const [authed, setAuthed] = useState(isLoggedIn);
+  const [authLoaded, setAuthLoaded] = useState(false);
 
   const getUser = async () => {
     try {
@@ -21,7 +21,7 @@ export default () => {
         setAuthLoaded(true);
         setAuthed(true);
       } else {
-        setAuthLoaded(false);
+        setAuthLoaded(true);
         setAuthed(false);
       }
     } catch (error) {}
@@ -29,13 +29,13 @@ export default () => {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <>
       {authLoaded ? (
         <NavigationContainer>
-          {authed || isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />}
+          {authed ? <DrawerNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       ) : (
         <ActivityIndicator />

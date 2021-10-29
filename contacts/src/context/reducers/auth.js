@@ -3,11 +3,13 @@ import {
   LOGIN_FAIL,
   LOGIN_LOADING,
   LOGIN_SUCCESS,
+  LOGOUT,
   REGISTER_FAIL,
   REGISTER_LOADING,
   REGISTER_SUCCESS,
 } from '../../constants/actionTypes';
 import initialAuthState from '../initialStates/authState';
+
 const auth = (state, {type, payload}) => {
   switch (type) {
     case LOGIN_LOADING:
@@ -20,6 +22,7 @@ const auth = (state, {type, payload}) => {
     case LOGIN_FAIL:
     case REGISTER_FAIL:
       return {...state, loading: false, error: payload};
+    case LOGOUT:
     case CLEAR_AUTH_STATE:
       return {...initialAuthState};
     default:

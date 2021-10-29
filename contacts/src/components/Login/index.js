@@ -12,6 +12,7 @@ import styles from './styles';
 
 const LoginComponent = ({error, onChange, loading, onSubmit}) => {
   const {navigate} = useNavigation();
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <Container>
@@ -44,8 +45,12 @@ const LoginComponent = ({error, onChange, loading, onSubmit}) => {
           <Input
             label="Password"
             placeholder="Enter password"
-            icon={<Text>Show</Text>}
-            secureTextEntry={true}
+            icon={
+              <TouchableOpacity onPress={() => setShowPassword(show => !show)}>
+                <Text>{showPassword ? 'Hide' : 'Show'}</Text>
+              </TouchableOpacity>
+            }
+            secureTextEntry={!showPassword}
             iconPosition="right"
             onChangeText={value => {
               onChange({name: 'password', value});
