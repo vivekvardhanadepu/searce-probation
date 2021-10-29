@@ -11,6 +11,7 @@ export default StyleSheet.create({
   },
   item: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   itemText: {
     fontSize: 17,

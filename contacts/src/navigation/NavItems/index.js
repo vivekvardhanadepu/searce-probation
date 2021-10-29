@@ -8,6 +8,8 @@ import {
   View,
 } from 'react-native';
 
+import Icon from '../../components/common/Icon/index';
+
 import Container from '../../components/common/Container';
 import logout from '../../context/actions/logout';
 import {SETTINGS} from '../../constants/routeNames';
@@ -35,14 +37,14 @@ export default NavItems = ({navigation, authDispatch}) => {
 
   const items = [
     {
-      icon: <Text>T</Text>,
+      icon: <Icon type="material" size={20} name="settings" />,
       name: 'Settings',
       onPress: () => {
         navigate(SETTINGS);
       },
     },
     {
-      icon: <Text>L</Text>,
+      icon: <Icon type="material" size={20} name="logout" />,
       name: 'Logout',
       onPress: () => {
         handleLogout();
