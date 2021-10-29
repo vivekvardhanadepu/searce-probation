@@ -35,7 +35,7 @@ export default () => {
     <>
       {authLoaded ? (
         <NavigationContainer>
-          {isAuthed || isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />}
+          {authed || isLoggedIn ? <DrawerNavigator /> : <AuthNavigator />}
         </NavigationContainer>
       ) : (
         <ActivityIndicator />
