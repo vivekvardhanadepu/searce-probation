@@ -10,8 +10,7 @@ import {REGISTER} from '../../constants/routeNames';
 
 import styles from './styles';
 
-const LoginComponent = () => {
-  const [value, onChangeText] = useState('');
+const LoginComponent = ({error, onChange, loading, onSubmit}) => {
   const {navigate} = useNavigation();
 
   return (
@@ -23,30 +22,42 @@ const LoginComponent = () => {
       <View>
         <Text style={[styles.title]}> Welcome to Contacts!!</Text>
         <Text style={[styles.subTitle]}> Please Login Here</Text>
-        <Message
-          retry
-          retryFn={() => {
-            console.log('retry!!');
-          }}
-          onDismiss={() => {}}
-          primary
-          message="Please try again"
-        />
+
         <View style={[styles.form]}>
+          {error && !error.error && (
+            <Message
+              danger
+              onDismiss={() => {}}
+              message="Invalid credentials"
+            />
+          )}
+          {error?.error && (
+            <Message danger onDismiss={() => {}} message={error.error} />
+          )}
           <Input
             label="Username"
-            placeholer="Enter username"
-            onChangeText={onChangeText}
-            value={value}
-            // error="You need to enter your username"
+            placeholder="Enter username"
+            onChangeText={value => {
+              onChange({name: 'userName', value});
+            }}
           />
           <Input
             label="Password"
+            placeholder="Enter password"
             icon={<Text>Show</Text>}
             secureTextEntry={true}
             iconPosition="right"
+            onChangeText={value => {
+              onChange({name: 'password', value});
+            }}
           />
-          <CustomButton primary title="Submit" />
+          <CustomButton
+            disabled={loading}
+            loading={loading}
+            primary
+            title="Submit"
+            onPress={onSubmit}
+          />
           <View style={[styles.createSection]}>
             <Text style={[styles.infoText]}>Don't have an account?</Text>
             <TouchableOpacity

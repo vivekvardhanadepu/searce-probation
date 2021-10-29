@@ -29,7 +29,17 @@ const RegisterComponent = ({
         <Text style={[styles.title]}> Welcome to Contacts!!</Text>
         <Text style={[styles.subTitle]}> Create a free account</Text>
         <View style={[styles.form]}>
-          {error?.error && <Text>{error}</Text>}
+          {error?.error && (
+            <Message
+              retry
+              retryFn={() => {
+                console.log('retry!!');
+              }}
+              onDismiss={() => {}}
+              danger
+              message={error.error}
+            />
+          )}
           <Input
             label="Username"
             placeholder="Enter username"

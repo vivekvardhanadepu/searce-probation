@@ -15,8 +15,6 @@ const Input = ({
   disabled,
   onPress,
 }) => {
-  const [focused, setFocus] = useState(false);
-
   const getBgColor = () => {
     if (disabled) {
       return colors.grey;
