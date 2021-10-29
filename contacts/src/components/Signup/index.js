@@ -3,8 +3,8 @@ import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import Container from '../common/Container/index';
-import Input from '../Input/index';
-import CustomButton from '../CustomButton/index';
+import Input from '../common/Input/index';
+import CustomButton from '../common/CustomButton/index';
 import {LOGIN} from '../../constants/routeNames';
 
 import styles from './styles';

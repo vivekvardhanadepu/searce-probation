@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
+import Input from '../common/Input/index';
 import Container from '../common/Container/index';
-import Input from '../Input/index';
-import CustomButton from '../CustomButton/index';
+import Message from '../common/Message/index';
+import CustomButton from '../common/CustomButton/index';
 import {REGISTER} from '../../constants/routeNames';
 
 import styles from './styles';
@@ -22,6 +23,15 @@ const LoginComponent = () => {
       <View>
         <Text style={[styles.title]}> Welcome to Contacts!!</Text>
         <Text style={[styles.subTitle]}> Please Login Here</Text>
+        <Message
+          retry
+          retryFn={() => {
+            console.log('retry!!');
+          }}
+          onDismiss={() => {}}
+          primary
+          message="Please try again"
+        />
         <View style={[styles.form]}>
           <Input
             label="Username"
