@@ -10,7 +10,14 @@ import {REGISTER} from '../../constants/routeNames';
 
 import styles from './styles';
 
-const LoginComponent = ({error, onChange, loading, onSubmit}) => {
+const LoginComponent = ({
+  form,
+  error,
+  onChange,
+  justSignedUp,
+  loading,
+  onSubmit,
+}) => {
   const {navigate} = useNavigation();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -25,6 +32,13 @@ const LoginComponent = ({error, onChange, loading, onSubmit}) => {
         <Text style={[styles.subTitle]}> Please Login Here</Text>
 
         <View style={[styles.form]}>
+          {justSignedUp && (
+            <Message
+              success
+              onDismiss={() => {}}
+              message="Account created successfully"
+            />
+          )}
           {error && !error.error && (
             <Message
               danger
@@ -38,6 +52,7 @@ const LoginComponent = ({error, onChange, loading, onSubmit}) => {
           <Input
             label="Username"
             placeholder="Enter username"
+            value={form.userName || null}
             onChangeText={value => {
               onChange({name: 'userName', value});
             }}

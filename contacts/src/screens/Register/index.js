@@ -17,9 +17,6 @@ const Signup = () => {
 
   useFocusEffect(
     useCallback(() => {
-      if (data) {
-        navigate(LOGIN);
-      }
       return () => {
         if (data || error) {
           clearAuthState()(authDispatch);
@@ -92,7 +89,9 @@ const Signup = () => {
       Object.values(form).every(item => item.trim().length > 0) &&
       Object.values(errors).every(item => !item)
     ) {
-      register(form)(authDispatch);
+      register(form)(authDispatch)(res => {
+        navigate(LOGIN, {data: res});
+      });
     }
   };
   return (

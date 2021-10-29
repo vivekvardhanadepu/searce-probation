@@ -16,12 +16,14 @@ export default ({
     lastName: last_name,
     password,
   }) =>
-  dispatch => {
+  dispatch =>
+  onSuccess => {
     dispatch({type: REGISTER_LOADING});
     axiosInstance
       .post('auth/register', {username, email, first_name, last_name, password})
       .then(res => {
         dispatch({type: REGISTER_SUCCESS, payload: res.data});
+        onSuccess(res.data);
       })
       .catch(err => {
         dispatch({
