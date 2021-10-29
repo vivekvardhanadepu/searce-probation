@@ -15,17 +15,6 @@ const Signup = () => {
     authState: {error, loading, data},
   } = useContext(GlobalContext);
 
-  // useEffect(() => {
-  //   if (data) {
-  //     navigate(LOGIN);
-  //   }
-  //   return () => {
-  //     if (data || error) {
-  //       clearAuthState()(authDispatch);
-  //     }
-  //   };
-  // }, [data, error]);
-
   useFocusEffect(
     useCallback(() => {
       if (data) {
