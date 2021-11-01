@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-import Input from '../common/Input/index';
-import Container from '../common/Container/index';
-import Message from '../common/Message/index';
-import CustomButton from '../common/CustomButton/index';
+import Input from '../common/Input';
+import Container from '../common/Container';
+import Message from '../common/Message';
+import CustomButton from '../common/CustomButton';
 import {REGISTER} from '../../constants/routeNames';
 
 import styles from './styles';

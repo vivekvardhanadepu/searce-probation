@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-import Icon from '../../components/common/Icon/index';
+import Icon from '../../components/common/Icon';
 
 import Container from '../../components/common/Container';
 import logout from '../../context/actions/logout';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 
-import CustomModal from '../common/CustomModal/index';
+import CustomModal from '../common/CustomModal';
 
 export default ContactsComponent = ({modalVisible, setModalVisible}) => {
   return (

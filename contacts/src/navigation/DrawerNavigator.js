@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import HomeNavigator from './HomeNavigator';
-import NavItems from './NavItems/index';
+import NavItems from './NavItems';
 import {GlobalContext} from '../context/Provider';
 import {HOME_NAVIGATOR} from '../constants/routeNames';
 

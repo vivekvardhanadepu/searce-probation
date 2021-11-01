@@ -1,10 +1,10 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Contacts from '../screens/Contacts/index';
-import ContactDetail from '../screens/ContactDetail/index';
-import CreateContact from '../screens/CreateContact/index';
-import Settings from '../screens/Settings/index';
+import Contacts from '../screens/Contacts';
+import ContactDetail from '../screens/ContactDetail';
+import CreateContact from '../screens/CreateContact';
+import Settings from '../screens/Settings';
 import {
   CONTACT_DETAIL,
   CONTACT_LIST,
