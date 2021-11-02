@@ -3,8 +3,8 @@ import {
   LOGIN_FAIL,
   LOGIN_LOADING,
   LOGIN_SUCCESS,
-} from '../../constants/actionTypes';
-import axiosInstance from '../../helpers/axiosInspector';
+} from '../../../constants/actionTypes';
+import axiosInstance from '../../../helpers/axiosInstance';
 
 export default ({userName: username, password}) =>
   dispatch => {

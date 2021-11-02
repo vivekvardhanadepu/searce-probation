@@ -3,7 +3,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 
 import LoginComponent from '../../components/Login';
 import {GlobalContext} from '../../context/Provider';
-import login from '../../context/actions/login';
+import login from '../../context/actions/auth/login';
 
 const Login = () => {
   const [form, setForm] = useState({});

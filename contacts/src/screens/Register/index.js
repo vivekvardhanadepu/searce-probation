@@ -3,7 +3,7 @@ import {useNavigation, useFocusEffect} from '@react-navigation/native';
 
 import RegisterComponent from '../../components/Signup';
 import {LOGIN} from '../../constants/routeNames';
-import register, {clearAuthState} from '../../context/actions/register';
+import register, {clearAuthState} from '../../context/actions/auth/register';
 import {GlobalContext} from '../../context/Provider';
 
 const Signup = () => {

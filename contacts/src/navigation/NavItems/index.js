@@ -11,7 +11,7 @@ import {
 import Icon from '../../components/common/Icon';
 
 import Container from '../../components/common/Container';
-import logout from '../../context/actions/logout';
+import logout from '../../context/actions/auth/logout';
 import {SETTINGS} from '../../constants/routeNames';
 
 import styles from './styles';

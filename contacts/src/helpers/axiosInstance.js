@@ -3,7 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import envs from '../config/env';
 
-let headers;
+let headers = {};
 
 const axiosInstance = axios.create({
   baseURL: envs.apiUrl,
@@ -19,7 +19,7 @@ axiosInstance.interceptors.request.use(
     return config;
   },
   error => {
-    Promise.reject(error);
+    return Promise.reject(error);
   },
 );
 
