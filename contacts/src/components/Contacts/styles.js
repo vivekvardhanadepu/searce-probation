@@ -22,4 +22,15 @@ export default StyleSheet.create({
     opacity: 0.6,
     paddingTop: 4,
   },
+  floatingActionBtn: {
+    backgroundColor: 'red',
+    width: 55,
+    height: 55,
+    position: 'absolute',
+    bottom: 45,
+    right: 10,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
