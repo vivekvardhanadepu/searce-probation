@@ -42,7 +42,7 @@ const Input = ({
         {loading && <ActivityIndicator color={colors.primary} />}
         {title && (
           <Text style={{color: disabled ? 'black' : colors.white}}>
-            {title}
+            {loading ? 'Please wait...' : title}
           </Text>
         )}
       </View>

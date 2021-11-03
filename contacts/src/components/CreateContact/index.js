@@ -8,7 +8,14 @@ import {DEFAULT_IMAGE_URI} from '../../constants/general';
 
 import styles from './styles';
 
-const CreateContact = () => {
+const CreateContact = ({
+  onSubmit,
+  onChangeText,
+  form,
+  setForm,
+  loading,
+  error,
+}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -20,8 +27,22 @@ const CreateContact = () => {
       <TouchableOpacity>
         <Text style={styles.chooseImg}>Choose image </Text>
       </TouchableOpacity>
-      <Input label="First name" placeholder="Enter First name" />
-      <Input label="Last name" placeholder="Enter Last name" />
+      <Input
+        label="First name"
+        placeholder="Enter First name"
+        error={error?.last_name?.[0]}
+        onChangeText={value => {
+          onChangeText({name: 'firstName', value});
+        }}
+      />
+      <Input
+        label="Last name"
+        placeholder="Enter Last name"
+        error={error?.first_name?.[0]}
+        onChangeText={value => {
+          onChangeText({name: 'lastName', value});
+        }}
+      />
       <Input
         icon={
           <CountryPicker
@@ -29,17 +50,30 @@ const CreateContact = () => {
             withFlag={true}
             withCallingCode={true}
             withEmoji={true}
-            onSelect={() => {}}
+            withCallingCodeButton
+            onSelect={({callingCode, cca2}) => {
+              setForm({...form, countryCode: cca2, phoneCode: callingCode[0]});
+            }}
             withCountryNameButton={false}
-            visible
+            error={error?.phone_number?.[0]}
+            countryCode={form.countryCode ? form.countryCode : undefined}
           />
         }
+        onChangeText={value => {
+          onChangeText({name: 'phoneNumber', value});
+        }}
         iconPosition="left"
         style={{paddingLeft: 10}}
         label="Phone number"
         placeholder="Enter Phone number"
       />
-      <CustomButton />
+      <CustomButton
+        primary
+        title="Submit"
+        onPress={onSubmit}
+        loading={loading}
+        disabled={loading}
+      />
     </View>
   );
 };
